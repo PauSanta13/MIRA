@@ -1,0 +1,150 @@
+{
+    "key": "group_calltoaction",
+    "title": "Call-to-action",
+    "fields": [
+        {
+            "key": "field_56cc3a07658b1",
+            "label": "Fondo",
+            "name": "background",
+            "type": "image",
+            "instructions": "Imagen alargada (1920x660)",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "20",
+                "class": "field-floatright",
+                "id": ""
+            },
+            "return_format": "url",
+            "preview_size": "thumbnail",
+            "library": "all",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "calltoaction_linkname",
+            "label": "",
+            "name": "title",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "75",
+                "class": "field-center field-title field-nominheight",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "Título",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "calltoaction_text",
+            "label": "",
+            "name": "text",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "75",
+                "class": "field-center field-clearnone",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "Texto explicativo opcional",
+            "maxlength": "",
+            "rows": 2,
+            "new_lines": "br"
+        },
+        {
+            "key": "field_56cc39e6658b0",
+            "label": "Botón",
+            "name": "button",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "40",
+                "class": "field-button",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "Ver más",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "calltoaction_linkpage",
+            "label": "Link",
+            "name": "link",
+            "type": "page_link",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "40",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "page",
+                "post"
+            ],
+            "taxonomy": "",
+            "allow_null": 0,
+            "allow_archives": 1,
+            "multiple": 0
+        },
+        {
+            "key": "field_5e8c883ab73ca",
+            "label": "Posición",
+            "name": "position",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "20",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "left": "<span class=\"dashicons dashicons-align-left\"><\/span>",
+                "center": "<span class=\"dashicons dashicons-align-center\"><\/span>",
+                "right": "<span class=\"dashicons dashicons-align-right\"><\/span>"
+            },
+            "allow_null": 0,
+            "default_value": "center",
+            "layout": "horizontal",
+            "return_format": "value"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/call-to-action"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1593015029
+}

@@ -1,0 +1,83 @@
+body {font-family: helvetica,arial,sans-serif;}
+.editor-post-title {border-bottom: 1px dashed #ccc}
+.wp-block {max-width:910px}
+.text-center, .aligncenter {text-align: center;}
+.editor-hide {display: none}
+.inverted-text-color {color: white}
+.block-editor-block-list__layout .block-editor-block-list__block[data-align=full] {max-width: none}
+.block-editor-block-list__layout .block-editor-block-list__block[data-align=wide] {max-width: 1000px}
+.component-program img {display: none;}
+.component-program li.vertodo {background: none !important}
+.component-featured-podcast .component-podcast {color: white;padding: 10px;background-size: cover;font-size: 85%;}
+.component-featured-podcast .component-podcast h1 {color: inherit;margin: 0;line-height: 1.2em;}
+.component-featured-podcast button, .component-featured-podcast .share-screen, .component-featured-podcast .btn-share {display: none !important}
+.component-featured-podcast .btn {display: inline-block; background: white; color: black; padding: 0px 5px; margin: 5px 10px 5px 0;border-radius:3px;}
+.component-social .icom {border-left:2px solid grey; padding-right:5px}
+.component-social .icom-facebook{border-left-color:#4a69b0}
+.component-social .icom-instagram{border-left-color:#c1366f}
+.component-social .icom-linkedin{border-left-color:#7caac3}
+.component-social .icom-phone{border-left-color:#8bc34a}
+.component-social .icom-spotify{border-left-color:#1ed15d}
+.component-social .icom-twitter{border-left-color:#36b1e1}
+.wp-block-button__link {border-radius: 30px; background:#80e9dc}
+.component-fotos .isotope-item {width: 24%;vertical-align: middle;display: inline-block;}
+.component.isotope-news-loop .filters ul, .component.isotope-news-loop .filters li {display:inline; list-style:none}
+.component.isotope-news-loop .filters a {display:inline-block;color: white; background: #846eff; padding:0 .5em 2px;border-radius:16px;}
+@media (min-width: 1000px) {
+.component-team .filters {float: left;max-width:100px;}
+.component-team .isotope {float: right;width:80%}
+.component-team .card {width: 48%;padding: 10px; margin: 0 0.5%;float: left;}
+}
+.component-team h1 {font-size: 20px; margin: 0;}
+.component-team p { margin: 0;}
+.component-call-to-action .content {background: grey; background-size:cover; color: white; padding: 1em}
+.component-testimonials:before,.component-testimonials:after {content:"«";position:absolute; left:0;top:20%;font-size:3em;color:lightblue}
+.component-testimonials:after{content:"»";left: auto; right:0}
+.component-testimonials p {margin: 0}
+.component-accordion {background: #88e2d6; padding: 1em 2em; }
+.component-accordion .block-header {text-align:center}
+.component-accordion .accordion {padding: .2em 1em; background:white; border-radius: 5px}
+.component-grid {padding: 1em 2em}
+.component-grid.color-grey {background-color: #333e48; color:white;}
+.component-grid.color-blue {background-color: #88e2d6; color:white;}
+.component-grid.color-white .grid-cell { width: 50%; float: left; padding: 0 5%;}
+.component-grid h3 {color: #1b9b8b}
+.component-team {background: #88e2d6; padding: 1em; }
+.component-team .experto {background: white; padding: 1em; margin: 1em 2em }
+.component-post-selection { overflow: auto; padding-bottom: 1em;}
+.component .item {padding: 1em;}
+.component .card {display: block}
+.component .card {max-width: none; min-width: 0; margin-top: -1em;color: black; text-decoration: none }
+.component .card figure {display:none}
+/* Home */
+.component-home-intro {background: #e0e5fd;; padding: 2em}
+.component-home-team {background: #fce7e7; padding: 1em 2em 0}
+.component-home-team img {width: 150px; float: left;}
+.component-home-team p {clear:left}
+.component-home-faro {background: url(/wp-content/themes/clio/assets/img/home/body/faro.png) no-repeat; background-size: cover;}
+.component-grid .grid-container {max-width: 900px;margin: 0 auto;}
+.component-grid .content {min-height: 4em;}
+.component-grid:after {display:block; content:" "; clear:both}
+
+.wp-block-media-text.is-style-expert {background-color: #1b9b8b}
+.wp-block-media-text.is-style-expert .block-editor-block-list__layout {padding: 1em;background: white}
+
+.field-center,.field-center input,.field-center textarea {text-align: center;}
+.field-title input {font-weight:bold; font-size: large;}
+.field-floatright {float:right}
+.field-button input {border-radius: 100px}
+.field-clearnone {clear: none}
+.field-fontsmaller {font-size:75%}
+.field-nominheight {min-height: auto !important;}
+.field-third {width: 33.3%; float: left; clear: none;}
+
+/* Delete square border around ACF blocks and for some fields also the padding */
+.acf-block-body .acf-block-fields {border: 0}
+.acf-field-testimonial-selection {padding:0 !important}
+.field-compact .acf-repeater .acf-field {padding: 0}
+.field-compact .acf-repeater .acf-label {display: none}
+.field-compact .acf-repeater .acf-field textarea,
+    .field-compact .acf-repeater .acf-field input {border: 0 !important; box-shadow: none !important;display: block;}
+.field-compact .acf-image-uploader p {font-size: 0; padding: 2px}
+
+

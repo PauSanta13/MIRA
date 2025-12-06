@@ -1,0 +1,188 @@
+# Translation of Plugins - Login No Captcha reCAPTCHA - Stable (latest release) in Spanish (Spain)
+# This file is distributed under the same license as the Plugins - Login No Captcha reCAPTCHA - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2022-10-05 10:35:57+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/4.0.0-beta.2\n"
+"Language: es\n"
+"Project-Id-Version: Plugins - Login No Captcha reCAPTCHA - Stable (latest release)\n"
+
+#: login-nocaptcha.php:265
+msgid ""
+"Captcha bypassed by whitelist for ip address %s using detection method %s (See \"Advanced\n"
+"    Options\" in <a href=\"%s\">settings</a> for security implications)"
+msgstr "Captcha evitado por la lista blanca para la dirección ip %s usando el método de detección %s (Consulta las «Opciones avanzadas» en los <a href=\"%s\">ajustes</a> para conocer las implicaciones de seguridad)"
+
+#: admin.php:71
+msgid "Please note: the whitelist feature is provided as a courtesy for testing purposes. In some server configurations, an attacker who knows the value of one of the whitelisted IP adresses might be able to spoof that address to bypass the captcha. By using the whitelist, you acknowledge that you have considered and undestand this risk."
+msgstr "Nota: la función de lista blanca se ofrece como cortesía para fines de prueba. En algunas configuraciones de servidor, un atacante que conozca el valor de una de las direcciones IP de la lista blanca podría falsificar esa dirección para saltarse el captcha. Al utilizar la lista blanca, reconoces que has considerado y comprendido este riesgo."
+
+#: admin.php:59
+msgid "IP Detection Method"
+msgstr "Método de detección de IP"
+
+#: admin.php:30
+msgid "Toggle Advanced Options"
+msgstr "Alternar las opciones avanzadas"
+
+#: admin.php:28
+msgid "Advanced Options"
+msgstr "Opciones avanzadas"
+
+#. Author URI of the plugin
+#: login-nocaptcha.php
+msgid "https://github.com/cyberscribe/login-recaptcha/graphs/contributors"
+msgstr "https://github.com/cyberscribe/login-recaptcha/graphs/contributors"
+
+#. Author of the plugin
+#: login-nocaptcha.php
+msgid "Robert Peake and Contributors"
+msgstr "Robert Peake y colaboradores"
+
+#: admin.php:77
+msgid "Disable CSS"
+msgstr "Desactivar CSS"
+
+#: login-nocaptcha.php:267
+msgid "Captcha bypassed by whitelist for ip address %s"
+msgstr "El captcha para la dirección IP %s ha sido omitido por la lista blanca"
+
+#: admin.php:53
+msgid "Whitelist IP ( 1 per line )"
+msgstr "Lista blanca de IP (1 por línea)"
+
+#: login-nocaptcha.php:281
+msgid "Login NoCaptcha was bypassed on login page: %s."
+msgstr "Login NoCaptcha ha sido omitido en la página de acceso: %s."
+
+#. Description of the plugin
+#: login-nocaptcha.php
+msgid "Adds a Google CAPTCHA checkbox to the login, registration, and forgot password forms, thwarting automated hacking attempts"
+msgstr "Añade una caja de Google CAPTCHA a los formularios de acceso, registro y contraseña olvidada, obstaculizando los intentos automatizados de hackeo"
+
+#. Plugin Name of the plugin
+#: login-nocaptcha.php
+msgid "Login No Captcha reCAPTCHA (Google)"
+msgstr "Login No Captcha reCAPTCHA (Google)"
+
+#: admin.php:103
+msgid "If you have any problems logging in, click \"%s\" above and/or deactivate the plugin."
+msgstr "Si tienes cualquier problema al acceder, haz clic en «%s» arriba y/o desactiva el plugin."
+
+#: admin.php:102
+msgid "Do <em>not</em> close this window or log out from this browser until you are confident that reCAPTCHA is working and you will be able to log in again. <br /><strong>You have been warned</strong>."
+msgstr "<em>No</em> cierres esta ventana o el navegador hasta que estés seguro de que reCAPTCHA está funcionando y que puedes volver a acceder. <br /><strong>Estás advertido</strong>."
+
+#: admin.php:100
+msgid "Attempt to log in to your site admin from that new browser"
+msgstr "Intenta acceder a la administración de tu sitio desde ese nuevo navegador"
+
+#: admin.php:99
+msgid "If you are logged in on that new browser, log out"
+msgstr "Si estás conectado en ese nuevo navegador, desconéctate"
+
+#: admin.php:98
+msgid "Open a completely different browser than this one"
+msgstr "Abre un navegador completamente diferente a este"
+
+#: admin.php:96
+msgid "If the reCAPTCHA displays correctly above, proceed as follows:"
+msgstr "Si el reCAPTCHA se muestra arriba correctamente, procede del siguiente modo:"
+
+#: admin.php:95
+msgid "If you see an error message above, check your keys before proceeding."
+msgstr "Si ves arriba un mensaje de error, comprueba tus claves antes de continuar."
+
+#: admin.php:93
+msgid "Next Steps"
+msgstr "Siguientes pasos"
+
+#: admin.php:90
+msgid "Example"
+msgstr "Ejemplo"
+
+#: admin.php:85 admin.php:103
+msgid "Delete Keys and Disable"
+msgstr "Borrar las claves y desactivar"
+
+#: admin.php:83
+msgid "Save Changes"
+msgstr "Guardar los cambios"
+
+#: admin.php:19
+msgid "Secret Key"
+msgstr "Clave secreta"
+
+#: admin.php:14
+msgid "Site Key"
+msgstr "Clave del sitio"
+
+#: admin.php:11
+msgid "<a href=\"%s\" target=\"_blank\">Click here</a> to create or view keys for Google NoCaptcha."
+msgstr "Haz <a href=\"%s\" target=\"_blank\">clic aquí</a> para crear o ver las claves para Google NoCaptcha."
+
+#: admin.php:6
+msgid "Login NoCaptcha Options"
+msgstr "Opciones de Login NoCaptcha"
+
+#: login-nocaptcha.php:343 login-nocaptcha.php:351
+msgid "The response from Google was not valid."
+msgstr "La respuesta de Google no ha sido válida."
+
+#: login-nocaptcha.php:343 login-nocaptcha.php:351
+msgid "Login NoCaptcha is not working. <a href=\"%s\">Please check your settings</a>."
+msgstr "Login NoCaptcha no está funcionando. <a href=\"%s\">Por favor, comprueba tus ajustes</a>."
+
+#: login-nocaptcha.php:334 login-nocaptcha.php:337
+msgid "<strong>ERROR</strong>&nbsp;: Incorrect ReCaptcha, please try again."
+msgstr "<strong>ERROR</strong>&nbsp;: ReCaptcha incorrecto, por favor, inténtalo de nuevo."
+
+#: login-nocaptcha.php:327
+msgid "Login NoCaptcha is not working. <a href=\"%s\">Please check your settings</a>. The message from Google was: %s"
+msgstr "Login NoCaptcha no está funcionando. <a href=\"%s\">Por favor, comprueba tus ajustes</a>. El mensaje de Google ha sido: %s"
+
+#: login-nocaptcha.php:317 login-nocaptcha.php:320 login-nocaptcha.php:357
+#: login-nocaptcha.php:360
+msgid "<strong>ERROR</strong>&nbsp;: Please check the ReCaptcha box."
+msgstr "<strong>ERROR</strong>&nbsp;: Por favor, comprueba la caja de ReCaptcha."
+
+#: login-nocaptcha.php:305
+msgid "Login NoCaptcha fell back to using cURL instead of wp_remote_post(). The error message was: %s."
+msgstr "Login NoCaptcha ha vuelto a usar cURL en vez de wp_remote_post(). El mensaje de error ha sido: %s."
+
+#: login-nocaptcha.php:190
+msgid "The response parameter is invalid or malformed."
+msgstr "El parámetro de respuesta no es válido o está mal formado."
+
+#: login-nocaptcha.php:189
+msgid "The response parameter is missing."
+msgstr "Falta el parámetro de respuesta."
+
+#: login-nocaptcha.php:188
+msgid "The secret parameter is invalid or malformed."
+msgstr "El parámetro secreto no es válido o está mal formado."
+
+#: login-nocaptcha.php:187
+msgid "The secret parameter is missing."
+msgstr "Falta el parámetro secreto."
+
+#: login-nocaptcha.php:52 login-nocaptcha.php:93 login-nocaptcha.php:101
+msgid "Login NoCaptcha has not been properly configured. <a href=\"%s\">Click here</a> to configure."
+msgstr "Login NoCaptcha no ha sido configurado apropiadamente. Haz <a href=\"%s\">clic aquí</a> para configurarlo."
+
+#: login-nocaptcha.php:74
+msgid "Login NoCaptcha"
+msgstr "Login NoCaptcha"
+
+#: login-nocaptcha.php:74
+msgid "Login NoCatpcha Options"
+msgstr "Opciones de Login NoCaptcha"
+
+#. Plugin URI of the plugin
+#: login-nocaptcha.php
+msgid "https://wordpress.org/plugins/login-recaptcha/"
+msgstr "https://es.wordpress.org/plugins/login-recaptcha/"

@@ -1,0 +1,230 @@
+{
+    "key": "group_poststyle",
+    "title": "Post style",
+    "fields": [
+        {
+            "key": "field_5e67cec0f75e6",
+            "label": "Estilo",
+            "name": "post_style",
+            "type": "button_group",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "normal": "<span title=\"Estilo clásico imagen con título\" class=\"dashicons dashicons-image-flip-vertical\"><\/span>",
+                "image": "<span title=\"Solo imagen\" class=\"dashicons dashicons-format-image\"><\/span>",
+                "rectangle": "<span title=\"Estilo clásico recortando bordes \" class=\"dashicons dashicons-align-center\"><\/span>"
+            },
+            "allow_null": 0,
+            "default_value": "",
+            "layout": "horizontal",
+            "return_format": "value"
+        },
+        {
+            "key": "field_5e7a90f466d65",
+            "label": "Img",
+            "name": "gallery_type",
+            "type": "select",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "thumbnail": "Imagen destacada",
+                "gallery": "Galería de imágenes",
+                "csv": "Importadas de Instagram"
+            },
+            "default_value": [],
+            "allow_null": 0,
+            "multiple": 0,
+            "ui": 0,
+            "return_format": "value",
+            "ajax": 0,
+            "placeholder": ""
+        },
+        {
+            "key": "field_5e7a91b68f62f",
+            "label": "Gal.",
+            "name": "gallery_acf",
+            "type": "gallery",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5e7a90f466d65",
+                        "operator": "==",
+                        "value": "gallery"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "array",
+            "preview_size": "thumbnail",
+            "insert": "append",
+            "library": "all",
+            "min": "",
+            "max": "",
+            "min_width": "",
+            "min_height": "",
+            "min_size": "",
+            "max_width": "",
+            "max_height": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_5e7a91f98f630",
+            "label": "URL",
+            "name": "gallery_csv",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5e7a90f466d65",
+                        "operator": "==",
+                        "value": "csv"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "field-fontsmaller",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "Introduce las URL de las imágenes separadas con comas.",
+            "maxlength": "",
+            "rows": 7,
+            "new_lines": ""
+        },
+        {
+            "key": "field_5e7af64fd367a",
+            "label": "Big",
+            "name": "big",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Imagen grande",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_5e68afe893ddc",
+            "label": "Text",
+            "name": "texto",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Ver extracto en el archivo",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_5e7ae639d0b12",
+            "label": "Hide",
+            "name": "hide_archive",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Ocultar img del archivo",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_5e7af047a0fd0",
+            "label": "Hide",
+            "name": "hide_single",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Ocultar del contenido",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_5e9ca6d057558",
+            "label": "Hide",
+            "name": "hide_cat",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "Oculta categoría final",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "side",
+    "style": "default",
+    "label_placement": "left",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1593155117
+}

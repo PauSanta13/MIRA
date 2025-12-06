@@ -1,0 +1,180 @@
+.modal-template {
+
+  .wpcf7 {
+    input[type=checkbox] {
+      box-shadow: inset 0 0 0 7px #ccc;
+      -webkit-appearance: none;
+      width: 100%;
+      height: 12px;
+      margin: 0 .3em 0 .6em;
+      
+      -webkit-transition: .2s;
+      transition: .2s;
+      padding: 0;
+      cursor: pointer;
+    }
+    input[type=checkbox]:checked {
+      background: #485866;
+      box-shadow: inset 0 0 0 3px #485866;
+    }
+    h3 {
+      padding: 4em 0 2em 0;
+      clear: both;
+      @include xs {
+        font-size: 10px;
+        text-align: center;
+      }
+      @include md {
+        @include psd-font(15.56px);
+      }
+    }
+    .wpcf7-text {
+      border: 0;
+      padding: 0 2em;
+    }
+    .wpcf7-textarea {
+      border: 0;
+      padding: 2em;
+    }
+    .contact-num {
+      border: 0;
+      width: 100%;
+      padding: 0 2em;
+    }
+    .wpcf7-form-control {
+      background-color: #dfe4e2;
+      width: 100%;
+      @include letter-spacing(100em);
+      @include xs {
+        height: 4.5em;
+      }
+      @include sm {
+        height: 5em;
+      }
+      @include md {
+        height: 5.5em;
+      }
+    }
+    .wpcf7-submit {
+      float: none;
+      left: 50%;
+      right: 50%;
+      transform: translateX(-50%);
+      position: relative;
+      background-color: #0bacd4;
+      width: 38%;
+      text-align: left;
+      padding: 0 3em;
+      &:after {
+        font-family: ionicons;
+        content: "\f125";
+        float: right;
+      }
+      @include xs {
+        width: 70%;
+      }
+      @include sm {
+        width: 60%;
+      }
+      @include md {
+        width: 38%;
+      }
+    }
+    .wpcf7-acceptance {
+      height: auto !important;
+    }
+    .wpcf7-form-control-wrap {
+      padding-right: 1em;
+    }
+    .form-padding {
+      padding-left: 2px;
+      padding-right: 2px;
+      margin-bottom: 4px;
+    }
+    .vertical-align {
+      display: table;
+      .cell {
+        display: table-cell;
+        vertical-align: middle;
+      }
+    }
+    ::-webkit-input-placeholder {
+      color: $dark-blue;
+    }
+
+    :-moz-placeholder {
+      /* Firefox 18- */
+      color: $dark-blue;
+    }
+
+    ::-moz-placeholder {
+      /* Firefox 19+ */
+      color: $dark-blue;
+    }
+
+    :-ms-input-placeholder {
+      color: $dark-blue;
+    }
+    .acceptance {
+      clear: both;
+      text-align: center;
+      color: #343d42;
+      font-weight: $light;
+      @include letter-spacing(15em);
+      @include xs {
+        padding: 1em 0;
+      }
+      @include sm {
+        padding: 2em 0;
+      }
+      @include md {
+        @include psd-font(17.78px);
+        padding: 3em;
+      }
+    }
+    #property-description {
+      @include xs {
+        padding: 1.5em;
+      }
+      @include sm {
+        padding: 1.5em;
+      }
+    }
+    #btnsubmit {
+      clear: both;
+    }
+  }
+  .checkbox-interest{
+    clear:both;
+    padding-right:0 !important;
+    .wpcf7-list-item {
+      display: table-cell !important;
+      border-collapse: collapse !important;
+      border:1px solid #ccc;
+      margin:0 !important;
+      @include xs{
+        padding:1em;
+        display:table !important;
+        border:0;
+        line-height:2em;
+      }
+      @include sm{
+        padding:1em;
+        width:100%;
+        float:left;
+      }
+      @include md{
+        padding:1em;
+        width:50%;
+        float:left;
+      }
+      label {
+        cursor: pointer;
+        font-weight: $normal;
+        font-size: 13px;
+        text-indent: 30px;
+        border-radius: 6px/50%;
+      }
+    }
+  }
+}

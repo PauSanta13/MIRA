@@ -1,0 +1,313 @@
+{
+    "key": "group_grid",
+    "title": "Rejilla",
+    "fields": [
+        {
+            "key": "field_56e2e49208641",
+            "label": "",
+            "name": "title",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "field-title",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "Encabezado",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_56e2e4fc08642",
+            "label": "",
+            "name": "description",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "Aquí puedes escribir una introducción.",
+            "maxlength": "",
+            "rows": 3,
+            "new_lines": "wpautop"
+        },
+        {
+            "key": "field_56e2e51708643",
+            "label": "Rejilla",
+            "name": "grid",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5e99972479c31",
+                        "operator": "!=",
+                        "value": "cards"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "field-compact",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "table",
+            "button_label": "+ Añadir elemento",
+            "sub_fields": [
+                {
+                    "key": "field_56e2e53908644",
+                    "label": "Gráfico",
+                    "name": "graphic",
+                    "type": "image",
+                    "instructions": "150x150±",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "10",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "url",
+                    "preview_size": "thumbnail",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
+                },
+                {
+                    "key": "field_56e2e57908645",
+                    "label": "Título",
+                    "name": "title",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "Título",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_56e2e58808646",
+                    "label": "Descripción",
+                    "name": "description",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "Descripción",
+                    "maxlength": "",
+                    "rows": 2,
+                    "new_lines": "br"
+                }
+            ]
+        },
+        {
+            "key": "field_5e9997b279c32",
+            "label": "Tarjetas",
+            "name": "cards",
+            "type": "relationship",
+            "instructions": "Elija las entradas y páginas que se enlazarán",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5e99972479c31",
+                        "operator": "==",
+                        "value": "cards"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "post",
+                "page"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search",
+                "post_type",
+                "taxonomy"
+            ],
+            "elements": [
+                "featured_image"
+            ],
+            "min": "",
+            "max": "",
+            "return_format": "object"
+        },
+        {
+            "key": "field_56e3005b00bb5",
+            "label": "Botón",
+            "name": "button_enabled",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "30",
+                "class": "field-third",
+                "id": ""
+            },
+            "message": "Colocar un botón debajo",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_56e3007a00bb6",
+            "label": "Texto",
+            "name": "button_text",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_56e3005b00bb5",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "field-third field-button",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_56e3008800bb7",
+            "label": "Link",
+            "name": "link",
+            "type": "page_link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_56e3005b00bb5",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "field-third ",
+                "id": ""
+            },
+            "post_type": "",
+            "taxonomy": "",
+            "allow_null": 0,
+            "allow_archives": 1,
+            "multiple": 0
+        },
+        {
+            "key": "field_56e2e5a408647",
+            "label": "Color",
+            "name": "colour",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "37",
+                "class": "field-third ",
+                "id": ""
+            },
+            "choices": {
+                "color-white": "<strong style=\"color:#aaaaaa\">Blanco<\/strong>",
+                "color-blue": "<strong style=\"color:#3991b8\">Azul<\/strong>",
+                "color-grey": "<strong style=\"color:#333e48\">Gris<\/strong>"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "",
+            "layout": "horizontal",
+            "return_format": "value",
+            "save_other_choice": 0
+        },
+        {
+            "key": "field_5e99972479c31",
+            "label": "Contenido",
+            "name": "content",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "30",
+                "class": "field-third ",
+                "id": ""
+            },
+            "choices": {
+                "default": "Rellenar",
+                "cards": "Tarjetas"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "",
+            "layout": "horizontal",
+            "return_format": "value",
+            "save_other_choice": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/grid"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1588850360
+}

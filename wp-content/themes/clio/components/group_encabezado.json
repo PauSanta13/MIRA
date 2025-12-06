@@ -1,0 +1,84 @@
+{
+    "key": "group_encabezado",
+    "title": "Encabezado",
+    "fields": [
+        {
+            "key": "field_5e79883bcd122",
+            "label": "Color",
+            "name": "color",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "20",
+                "class": "field-floatright",
+                "id": ""
+            },
+            "default_value": "#88e2d6"
+        },
+        {
+            "key": "field_5df8e2ab270d8",
+            "label": "",
+            "name": "titulo",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "75",
+                "class": "field-center field-title field-nominheight",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "Título",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5df8e2b2270d9",
+            "label": "",
+            "name": "subtitulo",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "75",
+                "class": "field-center field-clearnone",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "Aquí puedes escribir una introducción.",
+            "maxlength": "",
+            "rows": 2,
+            "new_lines": "br"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/encabezado"
+            }
+        ],
+        [
+            {
+                "param": "page_type",
+                "operator": "==",
+                "value": "posts_page"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1585023122
+}

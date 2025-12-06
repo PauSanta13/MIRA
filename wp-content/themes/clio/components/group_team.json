@@ -1,0 +1,147 @@
+{
+    "key": "group_team",
+    "title": "Equipo de expertos",
+    "fields": [
+        {
+            "key": "field_5e7a08b6e2117",
+            "label": "",
+            "name": "color",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "field-floatright",
+                "id": ""
+            },
+            "default_value": ""
+        },
+        {
+            "key": "field_5e7a085fe2116",
+            "label": "",
+            "name": "title",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "75",
+                "class": "field-title",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "Habla a nuestro experto en...",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5e7a08d5e2118",
+            "label": "Experto\/s",
+            "name": "expertos",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 1,
+            "max": 0,
+            "layout": "block",
+            "button_label": "+ Añadir más",
+            "sub_fields": [
+                {
+                    "key": "field_5e7a094fe2119",
+                    "label": "Elegir",
+                    "name": "post",
+                    "type": "post_object",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "post_type": [
+                        "experto"
+                    ],
+                    "taxonomy": "",
+                    "allow_null": 0,
+                    "multiple": 0,
+                    "return_format": "object",
+                    "ui": 1
+                },
+                {
+                    "key": "field_5e7a098be211a",
+                    "label": "Personalizar texto para este artículo",
+                    "name": "custom_text_enable",
+                    "type": "true_false",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "50",
+                        "class": "",
+                        "id": ""
+                    },
+                    "message": "",
+                    "default_value": 1,
+                    "ui": 1,
+                    "ui_on_text": "Personalizado",
+                    "ui_off_text": "Usar bio"
+                },
+                {
+                    "key": "field_5e7a09f8e211b",
+                    "label": "Texto personalizado",
+                    "name": "custom_text",
+                    "type": "textarea",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_5e7a098be211a",
+                                "operator": "==",
+                                "value": "1"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "Escribe aquí un texto relevante a esta página",
+                    "maxlength": "",
+                    "rows": 8,
+                    "new_lines": ""
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/team"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1586877449
+}

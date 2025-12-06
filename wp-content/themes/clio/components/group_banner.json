@@ -1,0 +1,48 @@
+{
+    "key": "group_banner",
+    "title": "Banner",
+    "modified": "1584534102",
+    "fields": [
+        {
+            "key": "field_56f406bd3aa21",
+            "label": "Overlay opacity",
+            "name": "overlay-opacity",
+            "type": "number",
+            "instructions": "Top banner's darkening factor.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": "%",
+            "min": 0,
+            "max": 100,
+            "step": 10,
+            "readonly": 0,
+            "disabled": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "page"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "side",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+        "page_attributes",
+        "tags"
+    ]
+}

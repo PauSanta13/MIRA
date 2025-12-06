@@ -1,0 +1,44 @@
+{
+    "key": "group_postcta",
+    "title": "Post Call to Action",
+    "fields": [
+        {
+            "key": "field_5e67cec0f76",
+            "label": "Enlace (opcional)",
+            "name": "cta_post",
+            "type": "post_object",
+            "instructions": "Enlazar a un contenido seleccionado. \r\nSi no se rellena, se enlazará a la entrada más reciente.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": "",
+            "taxonomy": "",
+            "allow_null": 0,
+            "multiple": 0,
+            "return_format": "object",
+            "ui": 1
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "left",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1593154943
+}

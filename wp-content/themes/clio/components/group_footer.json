@@ -1,0 +1,327 @@
+{
+    "key": "group_footer",
+    "title": "Pie del sitio web",
+    "fields": [
+        {
+            "key": "field_5e11b28a1bd5d",
+            "label": "Redes sociales",
+            "name": "footer_social",
+            "type": "group",
+            "instructions": "Datos compartidos para el pie del sitio web y el menú móvil",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_5e11b3cabc1c1",
+                    "label": "Enlaces",
+                    "name": "links",
+                    "type": "repeater",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "collapsed": "",
+                    "min": 1,
+                    "max": 6,
+                    "layout": "table",
+                    "button_label": "Añadir enlace",
+                    "sub_fields": [
+                        {
+                            "key": "field_5ddd4fa177cc3",
+                            "label": "Icono",
+                            "name": "icono",
+                            "type": "select",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "25",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "facebook": "facebook",
+                                "instagram": "instagram",
+                                "linkedin": "linkedin",
+                                "phone": "phone",
+                                "spotify": "spotify",
+                                "twitter": "twitter"
+                            },
+                            "default_value": [
+                                "facebook"
+                            ],
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "ui": 0,
+                            "return_format": "value",
+                            "ajax": 0,
+                            "placeholder": ""
+                        },
+                        {
+                            "key": "field_5ddd4fb277cc4",
+                            "label": "URL",
+                            "name": "url",
+                            "type": "url",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "50",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": ""
+                        },
+                        {
+                            "key": "field_5ddd4fba77cc5",
+                            "label": "Texto",
+                            "name": "texto",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "25",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "key": "field_5dde6857f1c92",
+            "label": "Columnas",
+            "name": "columnas",
+            "type": "repeater",
+            "instructions": "Contenido de las cuatro columnas del pie del sitio",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 1,
+            "max": 4,
+            "layout": "table",
+            "button_label": "Añadir columna",
+            "sub_fields": [
+                {
+                    "key": "field_5dde6884f1c93",
+                    "label": "Columna",
+                    "name": "columna",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "20",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_5dde689bf1c94",
+                    "label": "Contenido",
+                    "name": "contenido",
+                    "type": "flexible_content",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "80",
+                        "class": "",
+                        "id": ""
+                    },
+                    "layouts": {
+                        "layout_5dde68d055249": {
+                            "key": "layout_5dde68d055249",
+                            "name": "texto",
+                            "label": "Texto",
+                            "display": "block",
+                            "sub_fields": [
+                                {
+                                    "key": "field_5dde68ecf1c95",
+                                    "label": "",
+                                    "name": "texto",
+                                    "type": "wysiwyg",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "tabs": "all",
+                                    "toolbar": "basic",
+                                    "media_upload": 0,
+                                    "delay": 0
+                                }
+                            ],
+                            "min": "",
+                            "max": ""
+                        },
+                        "layout_5dde6907f1c96": {
+                            "key": "layout_5dde6907f1c96",
+                            "name": "menu",
+                            "label": "Menú",
+                            "display": "block",
+                            "sub_fields": [
+                                {
+                                    "key": "field_5dde6920f1c97",
+                                    "label": "",
+                                    "name": "",
+                                    "type": "message",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "message": "<a href=\"nav-menus.php\">Editar menú<\/a>",
+                                    "new_lines": "wpautop",
+                                    "esc_html": 0
+                                }
+                            ],
+                            "min": "",
+                            "max": ""
+                        },
+                        "layout_5dde693ff1c98": {
+                            "key": "layout_5dde693ff1c98",
+                            "name": "social",
+                            "label": "Social",
+                            "display": "block",
+                            "sub_fields": [
+                                {
+                                    "key": "field_5dde6946f1c99",
+                                    "label": "",
+                                    "name": "",
+                                    "type": "message",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "message": "Edita los enlaces sociales arriba",
+                                    "new_lines": "wpautop",
+                                    "esc_html": 0
+                                }
+                            ],
+                            "min": "",
+                            "max": ""
+                        }
+                    },
+                    "button_label": "Contenido",
+                    "min": 1,
+                    "max": ""
+                }
+            ]
+        },
+        {
+            "key": "field_5efddd219d934",
+            "label": "Código sanitario",
+            "name": "codigo_sanitario",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 1,
+            "delay": 0
+        },
+        {
+            "key": "field_5dfa21429a9b6",
+            "label": "Legal",
+            "name": "legal",
+            "type": "wysiwyg",
+            "instructions": "{copy} → \"©\"<br \/>{year}  → \"(el año actual)\"<br \/>{\/}  → \"(salto de línea para móviles)\"",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "basic",
+            "media_upload": 0,
+            "delay": 0
+        },
+        {
+            "key": "field_5e17150a0b989",
+            "label": "Tracking",
+            "name": "tracking",
+            "type": "textarea",
+            "instructions": "Espacio para pegar el código de <a href=\"https:\/\/analytics.google.com\/\" target=\"_blank\">Google Analytics<\/a>.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "acf-options-footer"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1593695578
+}

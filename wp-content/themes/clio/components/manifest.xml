@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ Plug and Play Design
+ Diet-unicorn theme components manifest
+-->
+<manifest>
+    <component>
+        <name>contact-form</name>
+        <functions>functions.php</functions>
+        <block>pegasus</block>
+        <title>Formulario de Contacto</title>
+        <icon>email-alt</icon> 
+    </component>
+    <component>
+        <name>encabezado</name>
+        <icon>editor-textcolor</icon>
+        <block>pegasus</block>
+    </component>
+    <component>
+        <name>fotos</name>
+        <title>Galería de Fotos</title>
+        <description>Galería de fotos masonry</description>
+        <icon>layout</icon>
+        <block>pegasus</block>
+    </component>
+    <component>
+        <name>isotope-news-loop</name>
+        <icon>admin-post</icon>
+    </component>
+    <component>
+        <name>loading-screen</name>
+        <functions>functions.php</functions>
+        <icon>laptop</icon>
+    </component>
+    <component>
+        <name>social</name>
+        <title>Redes sociales</title>
+        <block>pegasus</block>
+        <icon>admin-site-alt</icon>
+    </component>
+    <component>
+        <name>call-to-action</name>
+        <title>Call To Action</title>
+        <block>pegasus</block><icon>share-alt2</icon>
+    </component>
+    <component>
+        <title>Testimonios</title>
+        <name>testimonials</name>
+        <block>pegasus</block>
+        <icon>format-status</icon>
+    </component>
+    <component>
+        <title>Rejilla</title>
+        <name>grid</name>
+        <block>pegasus</block>
+        <icon>editor-table</icon>
+    </component>
+    <component>
+        <title>Acordeón</title>
+        <name>accordion</name>
+        <block>pegasus</block>
+        <icon>arrow-down-alt2</icon>
+    </component>
+    <component>
+        <name>team</name>
+        <title>Experto</title>
+        <block>pegasus</block>
+        <icon>groups</icon>
+        <functions>functions.php</functions>
+    </component>
+    <component>
+        <title>Carrusel de entradas</title>
+        <name>post-selection</name>
+        <block>pegasus</block>
+        <icon>admin-post</icon>
+    </component>
+    <component>
+        <name>home-banner</name>
+        <block>pegasus-home</block>
+        <icon>star-empty</icon>
+    </component>
+    <component>
+        <name>home-team</name>
+        <block>pegasus-home</block>
+        <icon>groups</icon>
+    </component>
+    <component>
+        <name>home-intro</name>
+        <block>pegasus-home</block>
+        <icon>editor-aligncenter</icon>
+    </component>
+    <component>
+        <name>home-faro</name>        
+        <block>pegasus-home</block>
+        <icon>lightbulb</icon>
+    </component>
+</manifest>

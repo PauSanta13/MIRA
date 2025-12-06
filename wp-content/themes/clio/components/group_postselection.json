@@ -1,0 +1,253 @@
+{
+    "key": "group_postselection",
+    "title": "Carrusel de entradas",
+    "fields": [
+        {
+            "key": "field_5e8dec98a1ef4",
+            "label": "",
+            "name": "title",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "74",
+                "class": "field-title field-center",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "Te puede interesar...",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5e8e2e62c7304",
+            "label": "",
+            "name": "color",
+            "type": "color_picker",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "25",
+                "class": "field-floatright",
+                "id": ""
+            },
+            "default_value": ""
+        },
+        {
+            "key": "field_5e8decaaa1ef5",
+            "label": "Mostrar",
+            "name": "show",
+            "type": "radio",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "15",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "selection": "Selección",
+                "lasts": "Recientes",
+                "cat": "Categoría"
+            },
+            "allow_null": 0,
+            "other_choice": 0,
+            "default_value": "selection",
+            "layout": "vertical",
+            "return_format": "value",
+            "save_other_choice": 0
+        },
+        {
+            "key": "field_5e8ded00a1ef6",
+            "label": "Selección",
+            "name": "selection",
+            "type": "relationship",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5e8decaaa1ef5",
+                        "operator": "==",
+                        "value": "selection"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "85",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "post",
+                "page"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search",
+                "post_type",
+                "taxonomy"
+            ],
+            "elements": [
+                "featured_image"
+            ],
+            "min": 1,
+            "max": 13,
+            "return_format": "object"
+        },
+        {
+            "key": "field_5e8ded5fa1ef7",
+            "label": "Mostrar...",
+            "name": "amount",
+            "type": "number",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5e8decaaa1ef5",
+                        "operator": "!=",
+                        "value": "selection"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "40",
+                "class": "",
+                "id": ""
+            },
+            "default_value": 3,
+            "placeholder": "",
+            "prepend": "las",
+            "append": "últimas entradas",
+            "min": 1,
+            "max": 9,
+            "step": ""
+        },
+        {
+            "key": "field_5e8dedd1a1ef8",
+            "label": "...de la categoría...",
+            "name": "cat",
+            "type": "taxonomy",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_5e8decaaa1ef5",
+                        "operator": "==",
+                        "value": "cat"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "45",
+                "class": "",
+                "id": ""
+            },
+            "taxonomy": "category",
+            "field_type": "select",
+            "allow_null": 0,
+            "add_term": 0,
+            "save_terms": 0,
+            "load_terms": 0,
+            "return_format": "id",
+            "multiple": 0
+        },
+        {
+            "key": "field_buttonpc",
+            "label": "Botón",
+            "name": "button_enabled",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "field-third",
+                "id": ""
+            },
+            "message": "Colocar un botón debajo",
+            "default_value": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
+            "key": "field_56e3007a00bby",
+            "label": "Texto",
+            "name": "button_text",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_buttonpc",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "field-third field-button",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_56e3008800bbz",
+            "label": "Link",
+            "name": "link",
+            "type": "page_link",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_buttonpc",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "field-third ",
+                "id": ""
+            },
+            "post_type": "",
+            "taxonomy": "",
+            "allow_null": 0,
+            "allow_archives": 1,
+            "multiple": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "block",
+                "operator": "==",
+                "value": "acf\/post-selection"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": 1,
+    "description": "",
+    "modified": 1592818223
+}

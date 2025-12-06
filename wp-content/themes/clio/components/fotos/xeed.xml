@@ -1,0 +1,7 @@
+    <component>
+        <name>fotos</name>
+        <title>Galería de Fotos</title>
+        <description>Galería de fotos masonry</description>
+        <icon>layout</icon>
+        <block>formatting</block>
+    </component>

@@ -1,0 +1,111 @@
+# Translation of Plugins - SimpleTOC &#8211; Table of Contents Block - Stable (latest release) in Spanish (Spain)
+# This file is distributed under the same license as the Plugins - SimpleTOC &#8211; Table of Contents Block - Stable (latest release) package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2022-11-25 19:45:24+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: GlotPress/4.0.1\n"
+"Language: es\n"
+"Project-Id-Version: Plugins - SimpleTOC &#8211; Table of Contents Block - Stable (latest release)\n"
+
+#: simpletoc-admin-settings.php:147
+msgid "Adds minimal JavaScript and css styles."
+msgstr "Añade estilos mínimos de JavaScript y css."
+
+#: simpletoc-admin-settings.php:118 build/index.js:1
+msgid "Donate here!"
+msgstr "¡Dona aquí!"
+
+#: simpletoc-admin-settings.php:122 build/index.js:1
+msgid "Think about making a donation if you use any of these features."
+msgstr "Piensa en hacer una donación si utilizas alguna de estas funciones."
+
+#. Description of the plugin
+#: plugin.php
+msgid "SEO-friendly Table of Contents Gutenberg block. No JavaScript and no CSS means faster loading."
+msgstr "Bloque Gutenberg de tabla de contenido compatible con SEO. Sin JavaScript y sin CSS significa una carga más rápida."
+
+#: plugin.php:210
+msgid "Check minimal and maximum level block settings."
+msgstr "Comprueba los ajustes del bloque de nivel mínimo y máximo."
+
+#: build/block.json
+msgctxt "block keyword"
+msgid "Index"
+msgstr "Índice"
+
+#: build/block.json
+msgctxt "block keyword"
+msgid "SimpleTOC"
+msgstr "SimpleTOC"
+
+#: build/block.json
+msgctxt "block keyword"
+msgid "TOC"
+msgstr "TOC"
+
+#: build/block.json
+msgctxt "block title"
+msgid "SimpleTOC"
+msgstr "SimpleTOC"
+
+#: build/block.json
+msgctxt "block description"
+msgid "Adds a Table of Contents."
+msgstr "Añade un tabla de contenidos."
+
+#: build/block.json
+msgctxt "block keyword"
+msgid "Table of Contents"
+msgstr "Tabla de contenidos"
+
+#. Plugin URI of the plugin
+#: plugin.php
+msgid "https://marc.tv/simpletoc-wordpress-inhaltsverzeichnis-plugin-gutenberg/"
+msgstr "https://marc.tv/simpletoc-wordpress-inhaltsverzeichnis-plugin-gutenberg/"
+
+#: plugin.php:375
+msgid "Support"
+msgstr "Soporte"
+
+#: plugin.php:376
+msgid "Donate"
+msgstr "Donar"
+
+#: plugin.php:377
+msgid "Write a review"
+msgstr "Escribir una reseña"
+
+#: plugin.php:202
+msgid "No blocks found."
+msgstr "No se han encontrado bloques."
+
+#: plugin.php:202 plugin.php:206
+msgid "Save or update post first."
+msgstr "Primero guarda o actualiza la entrada."
+
+#: plugin.php:206 plugin.php:210
+msgid "No headings found."
+msgstr "No se han encontrado encabezados."
+
+#: simpletoc-admin-settings.php:7
+msgid "SimpleTOC"
+msgstr "SimpleTOC"
+
+#: plugin.php:68 plugin.php:114 plugin.php:182 plugin.php:190 plugin.php:659
+#: plugin.php:701 build/index.js:1
+msgid "Table of Contents"
+msgstr "Tabla de contenidos"
+
+#. Plugin Name of the plugin
+#: plugin.php
+msgid "SimpleTOC - Table of Contents Block"
+msgstr "SimpleTOC - Table of Contents Block"
+
+#. Author of the plugin
+#: plugin.php
+msgid "Marc Tönsing"
+msgstr "Marc Tönsing"
