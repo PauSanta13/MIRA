@@ -17,6 +17,11 @@ jobs:
       - name: Set up Docker Compose
         uses: docker/setup-compose-action@v1
 
+      - name: Debug env (optional)
+        run: env | grep WPSCAN || echo "No WPSCAN vars found"
+
       - name: Run SCA WPScan onboarding service
+        env:
+          WPSCAN_TOKEN: ${{ secrets.WPSCAN_TOKEN }}
         run: |
           docker compose -f docker-compose.yml run --rm sca-wpscan-onboarding
