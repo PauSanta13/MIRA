@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      WPSCAN_API_TOKEN: ${{ secrets.WPSCAN_API_TOKEN }}
+      WPSCAN_API_TOKEN: ${{ secrets.WPSCAN_TOKEN }}
 
     steps:
       - name: Checkout repository
