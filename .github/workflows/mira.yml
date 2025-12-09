@@ -33,4 +33,4 @@ jobs:
       - name: MIRA SAST
         working-directory: .
         run: |
-          docker compose run --rm mira-sast-semgrep || true
+          docker compose run --rm mira-sast-semgrep
