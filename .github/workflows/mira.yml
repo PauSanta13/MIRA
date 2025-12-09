@@ -34,5 +34,3 @@ jobs:
         working-directory: .
         run: |
           docker compose run --rm mira-sast-semgrep
-          ts=$(date +%Y%m%d-%H%M)
-          mv reports/sast/mira-sast-report.json reports/sast/mira-sast-report-$ts.json 
