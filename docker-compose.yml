@@ -1,11 +1,43 @@
-version: "3.9"
-
 services:
-  sca-wpscan-onboarding:
-    build:
-      context: ./sca-wpscan-onboarding  
+  mira-sca:
+    image: wpscanteam/wpscan:latest
+    container_name: mira-sca
+    restart: "no"
     environment:
-      - WPSCAN_TOKEN=${WPSCAN_TOKEN}
+      TARGET_URL: ${TARGET_URL}                
+      WPSCAN_TOKEN: ${WPSCAN_TOKEN}
+    command: >
+      --url ${TARGET_URL}
+
+      --api-token ${WPSCAN_TOKEN}
+      --format json
+      --output /sca/reports/mira-sca-report-$(date +%Y%m%d-%H%M).json
     volumes:
-      - ./wp-content:/wp-content:ro
-    command: ["/wp-content"]
+      - /Users/paunis/Coding/MIRA/reports/sca:/sca/reports
+    networks:
+      - wp_net
+
+  mira-dast:
+    image: zaproxy/zap-stable
+    container_name: mira-dast
+    environment:
+      - TARGET_URL=${TARGET_URL}
+    volumes:
+      - /Users/paunis/Coding/MIRA/zap-wrk:/zap/wrk
+      - /Users/paunis/Coding/MIRA/reports/dast:/dast/reports
+    command:
+      - /bin/sh
+      - -c
+      - >
+        zap-baseline.py --autooff
+        -I
+        -t "$TARGET_URL"
+        -r /dast/reports/mira-dast-report-$(date +%Y%m%d-%H%M).html
+
+    networks:
+      - wp_net
+    restart: "no"
+
+networks:
+  wp_net:
+    external: true
