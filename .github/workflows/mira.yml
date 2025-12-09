@@ -24,13 +24,15 @@ jobs:
 #          docker compose pull mira-sca
 #          docker compose run --rm mira-sca
 
-#      - name: MIRA DAST
-#        working-directory: .
-#        run: |
-#          docker compose pull mira-dast
-#          docker compose run --rm mira-dast || true
+      - name: MIRA DAST
+        working-directory: .
+        run: |
+          docker compose pull mira-dast
+          docker compose run --rm mira-dast || true
 
       - name: MIRA SAST
         working-directory: .
         run: |
           docker compose run --rm mira-sast-semgrep
+          ts=$(date +%Y%m%d-%H%M)
+          mv reports/sast/mira-sast-report.json reports/sast/mira-sast-report-$ts.json 
