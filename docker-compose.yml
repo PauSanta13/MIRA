@@ -49,11 +49,11 @@ services:
       - -c
       - >
         semgrep
-          --config p/owasp-top-ten
-          --config p/php-security-audit
-          --config p/secrets
-          --json
-          --output /sast/reports/mira-sast-report-$$(date +%Y%m%d-%H%M).json
+        --config p/owasp-top-ten
+        --config p/php-security-audit
+        --config p/secrets
+        --json
+        --output /sast/reports/mira-sast-report-$$(date +%Y%m%d-%H%M).json
 
 networks:
   wp_net:
