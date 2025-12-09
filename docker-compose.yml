@@ -47,7 +47,7 @@ services:
     command: >
       semgrep
         --config p/owasp-top-ten
-        --config p/php-security-audit
+        --config p/php
         --config p/secrets
         --json
         --output /sast/reports/mira-sast-report.json
