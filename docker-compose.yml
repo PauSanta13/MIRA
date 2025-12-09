@@ -45,15 +45,12 @@ services:
       - /Users/paunis/Coding/MIRROR/wordpress-import/files/wp-content:/wp-content
       - /Users/paunis/Coding/MIRA/reports/sast:/sast/reports
     command: >
-      - /bin/sh
-      - -c
-      - >
-        semgrep
+      sh -c "semgrep
         --config p/owasp-top-ten
         --config p/php-security-audit
         --config p/secrets
         --json
-        --output /sast/reports/mira-sast-report-$$(date +%Y%m%d-%H%M).json
+        --output /sast/reports/mira-sast-report-$$(date +%Y%m%d-%H%M).json"
 
 networks:
   wp_net:
