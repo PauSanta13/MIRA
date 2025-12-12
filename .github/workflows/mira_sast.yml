@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
   
 jobs:
-  mira:
+  mira-sast:
     if: ${{ github.event.head_commit.author.name == 'Mirror Admin' }}
     runs-on: ubuntu-latest
 
