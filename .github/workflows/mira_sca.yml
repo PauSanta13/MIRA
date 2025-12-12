@@ -1,0 +1,37 @@
+name: MIRA WPScan delta demo
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  mira-wpscan-delta:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Extract plugin info from last commit
+        run: |
+          COMMIT_SHA="${GITHUB_SHA}"
+          COMMIT_MSG="$(git log -1 --format=%s "$COMMIT_SHA")"
+
+          echo "Commit SHA: $COMMIT_SHA"
+          echo "Commit message: $COMMIT_MSG"
+
+          # 1) Acción (installed / updated / deleted)
+          ACTION="$(echo "$COMMIT_MSG" | awk '{print $1}')"
+
+          # 2) Versión (lo que va después de 'version ')
+          VERSION="$(echo "$COMMIT_MSG" | sed -E 's/^.* version ([^ ]+)$/\1/')"
+
+          # 3) Slug (carpeta bajo wp-content/plugins/)
+          FILE_PATH="$(git show --name-only --pretty='' "$COMMIT_SHA" -- wp-content/plugins | head -n 1)"
+          SLUG="$(echo "$FILE_PATH" | cut -d'/' -f3)"
+
+          echo "Action : $ACTION"
+          echo "Version: $VERSION"
+          echo "Slug   : $SLUG"
