@@ -126,9 +126,9 @@ def main():
     print("Resultado WPScan:")
     print(json.dumps(result, indent=2))
 
-    # os.makedirs("reports/sca_delta", exist_ok=True)
-    # with open("reports/sca_delta/wpscan_delta.json", "w") as f:
-    #     json.dump(result, f, indent=2)
+    os.makedirs("reports/sca", exist_ok=True)
+    with open("reports/sca/mira-sca-report.json", "w") as f:
+        json.dump(result, f, indent=2)
 
     return 0
 
