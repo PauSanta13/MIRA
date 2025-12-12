@@ -1,0 +1,35 @@
+name: MIRA DAST
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 2 * * *"
+
+jobs:
+  mira-dast-zap:
+    runs-on: self-hosted
+
+    container:
+      image: zaproxy/zap-stable
+      options: --network=wp_net
+
+    env:
+      TARGET_URL: ${{ secrets.TARGET_URL }}
+
+    steps:
+      - name: Checkout repo (opcional)
+        uses: actions/checkout@v4
+
+      - name: Run ZAP Baseline
+        run: |
+          mkdir -p reports/dast
+          zap-baseline.py --autooff \
+            -I \
+            -t "$TARGET_URL" \
+            -r reports/dast/mira-dast-report.html
+
+      - name: Upload DAST report
+        uses: actions/upload-artifact@v4
+        with:
+          name: mira-dast-report
+          path: reports/dast/
