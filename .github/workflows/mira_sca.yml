@@ -2,7 +2,7 @@ name: MIRA WPScan delta
 
 on:
   push:
-    branches: [ main ]
+    branches: [ master ]
 
 jobs:
   mira-wpscan-delta:
