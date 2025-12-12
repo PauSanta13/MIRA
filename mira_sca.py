@@ -45,7 +45,7 @@ def get_plugin_slug_from_commit(sha):
 
 def call_wpscan(slug, version, token):
     headers = {"Authorization": f"Token token={token}"}
-    url = f"https://wpscan.com/api/v3/plugins/{slug}/{version}"
+    url = f"https://wpscan.com/api/v3/plugins/{slug}"
     r = requests.get(url, headers=headers, timeout=15)
     # No existe / sin datos
     if r.status_code == 404:
