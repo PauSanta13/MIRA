@@ -9,27 +9,34 @@ jobs:
   mira-dast-zap:
     runs-on: self-hosted
 
-    container:
-      image: zaproxy/zap-stable
-      options: --network=wp_net
-
     env:
       TARGET_URL: ${{ secrets.TARGET_URL }}
 
     steps:
       - name: Checkout repo (opcional)
         uses: actions/checkout@v4
+        with:
+          persist-credentials: true
 
       - name: Run ZAP Baseline
+        working-directory: .
         run: |
-          mkdir -p reports/dast
-          zap-baseline.py --autooff \
-            -I \
-            -t "$TARGET_URL" \
-            -r reports/dast/mira-dast-report.html
+          docker compose pull mira-dast
+          docker compose run --rm mira-dast || true
 
-      - name: Upload DAST report
-        uses: actions/upload-artifact@v4
-        with:
-          name: mira-dast-report
-          path: reports/dast/
+      - name: Commit DAST report to repo
+        if: github.ref == 'refs/heads/master' 
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git add reports/dast/mira-dast-report.html
+
+          # Si no hay cambios, salimos sin error
+          if git diff --cached --quiet; then
+            echo "No changes in DAST report, nothing to commit."
+            exit 0
+          fi
+
+          git commit -m "chore: update MIRA DAST report [skip ci]"
+          git push
