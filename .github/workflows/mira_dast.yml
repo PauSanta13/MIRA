@@ -6,7 +6,7 @@ on:
     - cron: "0 2 * * *"
 
 jobs:
-  mira-dast-zap:
+  mira-dast:
     runs-on: self-hosted
 
     env:
