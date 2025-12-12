@@ -1,17 +1,17 @@
 === Smush Image Optimization – Optimize Images | Compress & Lazy Load Images | Convert WebP & AVIF | Image CDN ===
 Plugin Name: Smush Image Optimization – Optimize Images | Compress & Lazy Load Images & Videos | Convert WebP & AVIF | Image CDN
-Version: 3.22.1
+Version: 3.23.0
 Author: WPMU DEV
 Author URI: https://wpmudev.com/
 Contributors: WPMUDEV, alexdunae
 Tags: optimize images, convert webp, webp, image optimization, compress images
 Requires at least: 6.4
 Tested up to: 6.8
-Stable tag: 3.22.1
+Stable tag: 3.23.0
 Requires PHP: 7.4
 License: GPL v2 - http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 
-Optimize images & bulk compress images with lossless compression, lazy load, convert to WebP or AVIF, and properly size images via CDN for incredibly fast sites.
+Optimize and compress images with lossless and lossy compression, lazy load, WebP & AVIF conversion, and global image CDN.
 
 == Description ==
 
@@ -241,6 +241,18 @@ We take plugin security incredibly seriously; if you have a bug or vulnerability
 5. Make your page load faster with lazy loading.
 
 == Changelog ==
+
+= 3.23.0 ( 2025-12-08 ) =
+- New: Restore multiple images at once with the new Bulk Restore option on the Media Library page
+- Improvement: Restore All Images feature now shows exact reason for restoration failure
+- Improvement: Backup original images and Optimize original images enabled by default for new users
+- Fix: Smush Directory keeps showing images that need to be optimized
+- Fix: LCP preload tag not added for relative image URLs
+- Fix: Elementor background images not converted to Next-Gen formats
+- Fix: Lazy-loaded video thumbnails not working in Elementor
+
+= 3.22.3 ( 2025-11-20 ) =
+- Improvement: Miscellaneous improvements
 
 = 3.22.1 ( 2025-10-06 ) =
 - Fix: Memory issues caused by Elementor integration

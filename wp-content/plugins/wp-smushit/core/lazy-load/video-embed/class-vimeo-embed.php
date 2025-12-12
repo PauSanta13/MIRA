@@ -11,7 +11,7 @@ if ( ! defined( 'WPINC' ) ) {
 class Vimeo_Embed implements Video_Embed {
 	const NAME = 'vimeo';
 	const VIDEO_ID_REGEX = '#player\.vimeo\.com\/video\/(?<video_id>[\d]+)#i';
-	const OEMBED_API_URL = 'https://vimeo.com/api/oembed.json?url=%s';
+	const VIMEO_OEMBED_ENDPOINT = 'https://vimeo.com/api/oembed.json';
 
 	/**
 	 *
@@ -260,16 +260,14 @@ class Vimeo_Embed implements Video_Embed {
 	}
 
 	private function get_oembed_api_url( $width, $height ) {
-		// @see https://developer.vimeo.com/api/oembed/videos.
-		$embed_url = add_query_arg(
+		$oembed_api_url = add_query_arg(
 			array(
 				'width'  => $width,
 				'height' => $height,
+				'url'    => urlencode( $this->embed_url ),
 			),
-			$this->embed_url
+			self::VIMEO_OEMBED_ENDPOINT
 		);
-
-		$oembed_api_url = sprintf( self::OEMBED_API_URL, $embed_url );
 
 		return apply_filters( 'wp_smush_lazyload_vimeo_oembed_api_url', $oembed_api_url, $this->get_video_id(), $this->embed_url );
 	}

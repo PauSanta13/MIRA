@@ -53,12 +53,18 @@ class Product_Analytics_Controller {
 	 */
 	private $next_gen_manager;
 
+	/**
+	 * @var Array_Utils
+	 */
+	private $array_utils;
+
 	public function __construct() {
 		$this->settings                   = Settings::get_instance();
 		$this->scan_background_process    = Background_Media_Library_Scanner::get_instance()->get_background_process();
 		$this->media_library_last_process = Media_Library_Last_Process::get_instance();
 		$this->product_analytics          = Product_Analytics::get_instance();
 		$this->next_gen_manager           = Next_Gen_Manager::get_instance();
+		$this->array_utils                = new Array_Utils();
 
 		$this->hook_actions();
 	}
@@ -117,6 +123,8 @@ class Product_Analytics_Controller {
 		add_action( 'wp_smush_bulk_smush_stuck', array( $this, 'track_bulk_smush_progress_stuck' ) );
 
 		add_action( 'wp_smush_lazy_load_updated', array( $this, 'track_lazy_load_settings_updated' ), 10, 2 );
+
+		add_action( 'wp_smush_bulk_restore_completed', array( $this, 'track_bulk_restore_completed' ) );
 	}
 
 	private function track( $event, $properties = array() ) {
@@ -440,15 +448,14 @@ class Product_Analytics_Controller {
 
 	private function get_bulk_smush_stats() {
 		$global_stats = WP_Smush::get_instance()->core()->get_global_stats();
-		$array_util   = new Array_Utils();
 
 		return array(
-			'Total Savings'                 => $this->convert_to_megabytes( (int) $array_util->get_array_value( $global_stats, 'savings_bytes' ) ),
-			'Total Images'                  => (int) $array_util->get_array_value( $global_stats, 'count_images' ),
-			'Media Optimization Percentage' => (float) $array_util->get_array_value( $global_stats, 'percent_optimized' ),
-			'Percentage of Savings'         => (float) $array_util->get_array_value( $global_stats, 'savings_percent' ),
-			'Images Resized'                => (int) $array_util->get_array_value( $global_stats, 'count_resize' ),
-			'Resize Savings'                => $this->convert_to_megabytes( (int) $array_util->get_array_value( $global_stats, 'savings_resize' ) ),
+			'Total Savings'                 => $this->convert_to_megabytes( (int) $this->array_utils->get_array_value( $global_stats, 'savings_bytes' ) ),
+			'Total Images'                  => (int) $this->array_utils->get_array_value( $global_stats, 'count_images' ),
+			'Media Optimization Percentage' => (float) $this->array_utils->get_array_value( $global_stats, 'percent_optimized' ),
+			'Percentage of Savings'         => (float) $this->array_utils->get_array_value( $global_stats, 'savings_percent' ),
+			'Images Resized'                => (int) $this->array_utils->get_array_value( $global_stats, 'count_resize' ),
+			'Resize Savings'                => $this->convert_to_megabytes( (int) $this->array_utils->get_array_value( $global_stats, 'savings_resize' ) ),
 		);
 	}
 
@@ -1003,6 +1010,7 @@ class Product_Analytics_Controller {
 			'Setup Wizard'     => true,
 			'Setup Wizard New' => true,
 			'smush_pro_upsell' => isset( $properties['Location'] ) && 'wizard' === $properties['Location'],
+			'Disconnect Site'  => true,
 		);
 		$is_trackable_event = ! empty( $trackable_events[ $event_name ] );
 
@@ -1298,5 +1306,40 @@ class Product_Analytics_Controller {
 
 		// By default, we activated for all post types, so this option is changed when any post type is unchecked.
 		return in_array( false, $included_post_types, true );
+	}
+
+	/**
+	 * Track the completion of a bulk restore process.
+	 *
+	 * @param array $args Restore arguments.
+	 */
+	public function track_bulk_restore_completed( $args ) {
+		$this->track(
+			'Bulk Restore Triggered',
+			$this->filter_bulk_restore_triggered_properties(
+				array(
+					'Type'                  => 'Bulk',
+					'Total images restored' => (int) $this->array_utils->get_array_value( $args, 'restored_count', 0 ),
+					'Total images'          => (int) $this->array_utils->get_array_value( $args, 'total_count', 0 ),
+					'Backup not found'      => (int) $this->array_utils->get_array_value( $args, 'missing_backup_count', 0 ),
+				)
+			)
+		);
+	}
+
+	/**
+	 * Filter the properties for the bulk restore triggered event.
+	 *
+	 * @param mixed $properties Properties.
+	 *
+	 * @return array
+	 */
+	public function filter_bulk_restore_triggered_properties( array $properties ) {
+		return array_merge(
+			$properties,
+			array(
+				'Backup Status' => $this->settings->is_backup_active() ? 'Enabled' : 'Disabled',
+			)
+		);
 	}
 }

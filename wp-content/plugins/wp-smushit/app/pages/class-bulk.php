@@ -224,7 +224,11 @@ class Bulk extends Abstract_Summary_Page implements Interface_Page {
 			)
 		);
 
-		$this->modals['restore-images'] = array();
+		$restore_ids = WP_Smush::get_instance()->core()->mod->backup->get_attachments_with_backups();
+		$this->modals['restore-images'] = array(
+			'restore_image_count' => count( $restore_ids ),
+		);
+		$this->modals['disable-backup-original-image'] = array();
 	}
 
 	/**************************

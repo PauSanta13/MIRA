@@ -527,7 +527,7 @@ class Hub_Connector extends Controller {
 			</div>
 			<div class="sui-box-settings-col-2">
 				<?php if ( $is_site_connected ) : ?>
-					<button class="sui-button sui-button-ghost" data-esc-close="false" data-modal-open="smush-disconnect-site-modal" data-modal-open-focus="dialog-close-div" data-modal-mask="true">
+					<button type="button" class="sui-button sui-button-ghost" data-esc-close="false" data-modal-open="smush-disconnect-site-modal" data-modal-open-focus="dialog-close-div" data-modal-mask="true">
 						<span class="sui-button-text-default">
 							<span class="sui-icon-plug-disconnected" aria-hidden="true"></span>
 							<?php esc_html_e( 'Disconnect site', 'wp-smushit' ); ?>

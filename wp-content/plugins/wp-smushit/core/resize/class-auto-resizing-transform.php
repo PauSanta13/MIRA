@@ -11,6 +11,7 @@ use Smush\Core\Settings;
 use Smush\Core\Srcset\Srcset_Helper;
 use Smush\Core\Transform\Transform;
 use Smush\Core\Url_Utils;
+use Smush\Core\Image_Dimensions\Image_Dimensions_Transform;
 
 class Auto_Resizing_Transform implements Transform {
 	/**
@@ -250,9 +251,19 @@ class Auto_Resizing_Transform implements Transform {
 			return false;
 		}
 
-		// @see https://github.com/WordPress/wordpress-develop/pull/7812
-		$width = $element->get_attribute_value( 'width' );
-		if ( ! is_string( $width ) || empty( trim( $width ) ) ) {
+		$width  = $element->get_attribute_value( 'width' );
+		$width  = is_string( $width ) ? trim( $width ) : '';
+		$height = $element->get_attribute_value( 'height' );
+		$height = is_string( $height ) ? trim( $height ) : '';
+
+		if ( empty( $width ) && empty( $height ) ) {
+			// No dimensions specified.
+			return false;
+		}
+
+		$has_single_dimension = empty( $width ) || empty( $height );
+		$has_aspect_ratio     = str_contains( $element->get_markup(), Image_Dimensions_Transform::IMAGE_ASPECT_RATIO_CSS_VAR );
+		if ( $has_single_dimension && ! $has_aspect_ratio ) {
 			return false;
 		}
 

@@ -367,9 +367,9 @@ class Smush {
 		if ( isNextgen ) {
 			statsHuman.html( formattedSize );
 		} else {
-			statsHuman.html( WP_Smush.helpers.getFormatFromString( formattedSize ) );
+			statsHuman.html( formattedSize );
 			jQuery( '.sui-summary-large.wp-smush-stats-human' )
-				.html( WP_Smush.helpers.getSizeFromString( formattedSize ) );
+				.html( formattedSize );
 		}
 
 		// Update the savings percent.

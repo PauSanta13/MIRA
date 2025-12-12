@@ -113,6 +113,11 @@ class Ajax {
 		 */
 		// Hide the new features modal.
 		add_action( 'wp_ajax_hide_new_features', array( $this, 'hide_new_features_modal' ) );
+
+		/**
+		 * Review Prompts Notice.
+		 */
+		add_action( 'wp_ajax_wp_smush_review_prompts_remind_later', array( $this, 'remind_later_review_prompts' ) );
 	}
 
 	/***************************************
@@ -172,14 +177,12 @@ class Ajax {
 			// Update value in settings.
 			if ( 'lossy' === $name ) {
 				$settings['lossy'] = ! empty( $quick_settings->{$name} ) ? $highest_lossy_level : Settings::LEVEL_LOSSLESS;
+			} elseif ( 'original' === $name ) {
+				$optimize_originals = ! empty( $quick_settings->{$name} );
+				$settings[ $name ]  = $optimize_originals;
+				$settings['backup'] = $optimize_originals;
 			} else {
 				$settings[ $name ] = (bool) $quick_settings->{$name};
-			}
-
-			// If Smush originals is selected, enable backups.
-			$require_backup = 'original' === $name && ! empty( $settings[ $name ] );
-			if ( $require_backup ) {
-				$settings['backup'] = true;
 			}
 
 			// If lazy load enabled - init defaults.
@@ -824,7 +827,30 @@ class Ajax {
 		if ( ! Helper::is_user_allowed( 'manage_options' ) ) {
 			wp_die( esc_html__( 'Unauthorized', 'wp-smushit' ), 403 );
 		}
+
 		delete_site_option( 'wp-smush-show_upgrade_modal' );
+		wp_send_json_success();
+	}
+
+	/**
+	 * Hides the new features modal.
+	 */
+	public function remind_later_review_prompts() {
+		check_ajax_referer( 'wp-smush-ajax' );
+
+		// Check for permission.
+		if ( ! Helper::is_user_allowed( 'manage_options' ) ) {
+			wp_die( esc_html__( 'Unauthorized', 'wp-smushit' ), 403 );
+		}
+
+		update_option(
+			Admin::REVIEW_PROMPTS_OPTION_KEY,
+			array(
+				'time' => time() + WEEK_IN_SECONDS,
+				'type' => 'remind_later',
+			)
+		);
+
 		wp_send_json_success();
 	}
 }

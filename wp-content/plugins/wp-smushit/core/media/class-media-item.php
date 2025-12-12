@@ -924,7 +924,7 @@ class Media_Item extends Smush_File {
 	/**
 	 * @return false|string
 	 */
-	private function get_attached_file() {
+	public function get_attached_file() {
 		if ( is_null( $this->attached_file ) ) {
 			$this->attached_file = get_attached_file( $this->get_id() );
 		}
@@ -1154,10 +1154,6 @@ class Media_Item extends Smush_File {
 	}
 
 	public function can_be_restored() {
-		if ( ! $this->plugin_settings->is_backup_active() ) {
-			return false;
-		}
-
 		// Note that we don't check if file exists because the file might be on a remote server e.g. s3
 		return ! empty( $this->get_default_backup_size() );
 	}

@@ -320,7 +320,7 @@ class Core extends Stats {
 				'</a>'
 			),
 			'restore'                     => esc_html__( 'Restoring image...', 'wp-smushit' ),
-			'smushing'                    => esc_html__( 'Smushing image...', 'wp-smushit' ),
+			'smushing'                    => esc_html__( 'Smushing...', 'wp-smushit' ),
 			'btn_ignore'                  => esc_html__( 'Ignore', 'wp-smushit' ),
 			'view_detail'                 => esc_html__( 'View Details', 'wp-smushit' ),
 			'membership_valid'            => esc_html__( 'We successfully verified your membership, all the Pro features should work completely. ', 'wp-smushit' ),

@@ -136,14 +136,6 @@ class LCP_Data {
 		return $this->background_type;
 	}
 
-	public function get_background_property() {
-		if ( is_null( $this->background_property ) ) {
-			$this->background_property = $this->array_utils->get_array_value( $this->data, array( 'background_data', 'property' ) );
-		}
-
-		return $this->background_property;
-	}
-
 	public function get_background_urls() {
 		if ( is_null( $this->background_urls ) ) {
 			$background_urls       = $this->array_utils->get_array_value( $this->data, array( 'background_data', 'urls' ) );

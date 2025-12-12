@@ -152,7 +152,7 @@ if ( ! defined( 'WPINC' ) ) {
 		</span>
 	</div>
 	<div class="sui-box-settings-col-2">
-		<button class="sui-button sui-button-ghost" id="smush-clear-lcp-data">
+		<button type="button" class="sui-button sui-button-ghost" id="smush-clear-lcp-data">
 			<span class="sui-loading-text">
 				<?php esc_html_e( 'Clear LCP Data', 'wp-smushit' ); ?>
 			</span>

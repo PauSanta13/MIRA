@@ -257,7 +257,7 @@ class Media_Library_Row {
 			$links = array_splice( $links, count( $links ) - $max_links );
 		}
 
-		return sprintf( '<div class="sui-smush-media smush-status-links">%s</div>', join( $separator, $links ) );
+		return sprintf( '<div class="sui-smush-media smush-status-links">%s</div>', join( $links ) );
 	}
 
 	private function generate_markup_for_size_limited_item() {
@@ -617,23 +617,24 @@ class Media_Library_Row {
 		}
 
 		$links        = array();
-		$resmush_link = $this->get_resmush_link();
-		if ( $resmush_link ) {
-			$links[] = $resmush_link;
-			// Add ignore button while showing resmush button.
-			$links[] = $this->get_ignore_link();
-		}
-
-		if ( $this->is_no_savings() ) {
-			return $links;
-		}
-
 		$restore_link = $this->get_restore_link();
 		if ( $restore_link ) {
 			$links[] = $restore_link;
 		}
 
-		$links[] = $this->get_view_stats_link();
+		$resmush_link = $this->get_resmush_link();
+		if ( $resmush_link ) {
+			$links[] = $resmush_link;
+		}
+
+		if ( ! $this->is_no_savings() ) {
+			$links[] = $this->get_view_stats_link();
+		}
+
+		// Add ignore button while showing resmush button.
+		if ( $resmush_link ) {
+			$links[] = $this->get_ignore_link();
+		}
 
 		return $links;
 	}
@@ -713,16 +714,22 @@ class Media_Library_Row {
 
 	private function get_smush_link() {
 		return sprintf(
-			'<a href="#" class="wp-smush-send" data-id="%d">%s</a>',
+			'<a href="#" class="wp-smush-send button" data-id="%d">%s</a>',
 			$this->attachment_id,
 			esc_html__( 'Smush', 'wp-smushit' )
 		);
 	}
 
 	private function should_reoptimize() {
-		$reoptimize_list = $this->global_stats->get_reoptimize_list();
-		$error_list      = $this->global_stats->get_error_list();
-		return $reoptimize_list->has_id( $this->attachment_id ) || $error_list->has_id( $this->attachment_id );
+		$reoptimize_list   = $this->global_stats->get_reoptimize_list();
+		$error_list        = $this->global_stats->get_error_list();
+		$should_reoptimize = $reoptimize_list->has_id( $this->attachment_id ) || $error_list->has_id( $this->attachment_id );
+
+		if ( $should_reoptimize && $this->optimizer->has_errors() ) {
+			return $this->optimizer->should_reoptimize();
+		}
+
+		return $should_reoptimize;
 	}
 
 	/**
@@ -739,7 +746,7 @@ class Media_Library_Row {
 		}
 
 		return sprintf(
-			'<a href="#" data-tooltip="%s" data-id="%d" data-nonce="%s" class="wp-smush-action wp-smush-title sui-tooltip sui-tooltip-constrained wp-smush-resmush">%s</a>',
+			'<a href="#" data-tooltip="%s" data-id="%d" data-nonce="%s" class="wp-smush-action wp-smush-title sui-tooltip sui-tooltip-constrained wp-smush-resmush button">%s</a>',
 			esc_html__( 'Smush image including original file', 'wp-smushit' ),
 			$this->attachment_id,
 			wp_create_nonce( 'wp-smush-resmush-' . $this->attachment_id ),
@@ -765,7 +772,7 @@ class Media_Library_Row {
 		}
 
 		return sprintf(
-			'<a href="#" class="wp-smush-send" data-id="%d">%s</a>',
+			'<a href="#" class="wp-smush-send button" data-id="%d">%s</a>',
 			$this->attachment_id,
 			$anchor_text
 		);
@@ -809,16 +816,20 @@ class Media_Library_Row {
 	 * @return string|void
 	 */
 	private function get_restore_link() {
-		if ( ! $this->media_item->can_be_restored() ) {
-			return;
+		if ( ! empty( $this->media_item->can_be_restored() ) ) {
+			return sprintf(
+				'<a href="#" data-tooltip="%s" data-id="%d" data-nonce="%s" class="wp-smush-action wp-smush-title sui-tooltip wp-smush-restore button">%s</a>',
+				esc_html__( 'Restore original image', 'wp-smushit' ),
+				$this->attachment_id,
+				wp_create_nonce( 'wp-smush-restore-' . $this->attachment_id ),
+				esc_html__( 'Restore original', 'wp-smushit' )
+			);
 		}
 
 		return sprintf(
-			'<a href="#" data-tooltip="%s" data-id="%d" data-nonce="%s" class="wp-smush-action wp-smush-title sui-tooltip wp-smush-restore">%s</a>',
-			esc_html__( 'Restore original image', 'wp-smushit' ),
-			$this->attachment_id,
-			wp_create_nonce( 'wp-smush-restore-' . $this->attachment_id ),
-			esc_html__( 'Restore', 'wp-smushit' )
+			'<a href="#" data-tooltip="%s" class="wp-smush-title wp-smush-restore sui-tooltip sui-tooltip-constrained button disabled">%s</a>',
+			esc_html__( 'No backup image available. Enable Back up original images to restore them in the future.', 'wp-smushit' ),
+			esc_html__( 'Restore original', 'wp-smushit' )
 		);
 	}
 
@@ -826,7 +837,7 @@ class Media_Library_Row {
 		return sprintf(
 			'<a href="#" class="wp-smush-action smush-stats-details wp-smush-title sui-tooltip sui-tooltip-top-right" data-tooltip="%s">%s</a>',
 			esc_html__( 'Detailed stats for all the image sizes', 'wp-smushit' ),
-			esc_html__( 'View Stats', 'wp-smushit' )
+			'<span class="stats-toggle"></span>'
 		);
 	}
 

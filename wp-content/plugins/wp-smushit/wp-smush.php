@@ -13,7 +13,7 @@
  * Plugin Name:       Smush
  * Plugin URI:        https://wpmudev.com/project/wp-smush-pro/
  * Description:       Reduce image file sizes, improve performance and boost your SEO using the free <a href="https://wpmudev.com/">WPMU DEV</a> WordPress Smush API.
- * Version:           3.22.1
+ * Version:           3.23.0
  * Requires at least: 6.4
  * Requires PHP:      7.4
  * Author:            WPMU DEV
@@ -51,7 +51,7 @@ if ( ! defined( 'WPINC' ) ) {
 }
 
 if ( ! defined( 'WP_SMUSH_VERSION' ) ) {
-	define( 'WP_SMUSH_VERSION', '3.22.1' );
+	define( 'WP_SMUSH_VERSION', '3.23.0' );
 }
 // Used to define body class.
 if ( ! defined( 'WP_SHARED_UI_VERSION' ) ) {
@@ -286,6 +286,24 @@ if ( ! class_exists( 'WP_Smush' ) ) {
 
 			add_action( 'init', array( $this, 'load_cross_sell_module' ), 5 );
 
+			// Add Black Friday campaign module.
+			add_action(
+				'init',
+				function () {
+					if ( Membership::get_instance()->is_pro() ) {
+						return;
+					}
+
+					if ( ! class_exists( '\WPMUDEV\Modules\BlackFriday\Campaign' ) ) {
+						$black_friday_path = WP_SMUSH_DIR . 'core/external/wpmudev-black-friday/campaign.php';
+						if ( file_exists( $black_friday_path ) ) {
+							require_once $black_friday_path;
+							new \WPMUDEV\Modules\BlackFriday\Campaign();
+						}
+					}
+				}
+			);
+
 			$this->init();
 		}
 
@@ -481,44 +499,7 @@ if ( ! class_exists( 'WP_Smush' ) ) {
 			}
 
 			/* @noinspection PhpIncludeInspection */
-			require_once WP_SMUSH_DIR . 'core/external/free-dashboard/module.php';
-			/* @noinspection PhpIncludeInspection */
 			require_once WP_SMUSH_DIR . 'core/external/plugin-notice/notice.php';
-
-			// Add the Mailchimp group value.
-			add_action(
-				'frash_subscribe_form_fields',
-				function ( $mc_list_id ) {
-					if ( '4b14b58816' === $mc_list_id ) {
-						echo '<input type="hidden" id="mce-group[53]-53-1" name="group[53][2]" value="2" />';
-					}
-				}
-			);
-
-			// Register the current plugin.
-			do_action(
-				'wpmudev_register_notices',
-				'smush',
-				array(
-					'basename'     => WP_SMUSH_BASENAME,                      // Required: Plugin basename (for backward compat).
-					'title'        => 'Smush',                                // Required: Plugin title.
-					'wp_slug'      => 'wp-smushit',                           // Required: wp.org slug of the plugin.
-					'cta_email'    => __( 'Get Fast!', 'wp-smushit' ),          // Email button CTA.
-					'installed_on' => time(),                                 // Optional: Plugin activated time.
-					'screens'      => array( // Required: Plugin screen ids.
-						'toplevel_page_smush',
-					),
-				)
-			);
-			add_filter( 'wpmudev_notices_is_disabled', array( $this, 'enable_free_tips_opt_in' ), 10, 3 );
-
-			// The email message contains 1 variable: plugin-name.
-			add_filter(
-				'wdev_email_message_' . WP_SMUSH_BASENAME,
-				function () {
-					return "You're awesome for installing %s! Make sure you get the most out of it, boost your Google PageSpeed score with these tips and tricks - just for users of Smush!";
-				}
-			);
 
 			// Recommended plugin notice.
 			do_action(
@@ -565,15 +546,6 @@ if ( ! class_exists( 'WP_Smush' ) ) {
 			);
 
 			$cross_sell_handler = new \WPMUDEV\Modules\Plugin_Cross_Sell( $submenu_params );
-		}
-
-		public function enable_free_tips_opt_in( $is_disabled, $type, $plugin ) {
-			// Enable email opt-in.
-			if ( 'smush' === $plugin && 'email' === $type ) {
-				$is_disabled = false;
-			}
-
-			return $is_disabled;
 		}
 
 		/**

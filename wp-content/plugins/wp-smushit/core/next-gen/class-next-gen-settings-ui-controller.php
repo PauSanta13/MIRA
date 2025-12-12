@@ -114,7 +114,7 @@ class Next_Gen_Settings_Ui_Controller extends Controller {
 
 	public function get_deactivate_button_content() {
 		?>
-		<button class="sui-button sui-button-ghost" id="smush-toggle-<?php echo esc_attr( $this->next_gen_configuration->get_format_key() ); ?>-button" data-action="disable">
+		<button type="button" class="sui-button sui-button-ghost" id="smush-toggle-<?php echo esc_attr( $this->next_gen_configuration->get_format_key() ); ?>-button" data-action="disable">
 			<span class="sui-loading-text">
 				<i class="sui-icon-power-on-off" aria-hidden="true"></i><?php esc_html_e( 'Deactivate', 'wp-smushit' ); ?>
 			</span>

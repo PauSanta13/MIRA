@@ -70,8 +70,8 @@ class Settings {
 		'strip_exif'             => true,    // works with CDN.
 		'resize'                 => false,
 		'detection'              => false,
-		'original'               => false,
-		'backup'                 => false,
+		'original'               => true,
+		'backup'                 => true,
 		'no_scale'               => false,
 		'png_to_jpg'             => false,   // works with CDN.
 		'nextgen'                => false,
@@ -123,14 +123,14 @@ class Settings {
 	 *
 	 * @var array
 	 */
-	private $bulk_fields = array( 'lossy', 'bulk', 'auto', 'original', 'strip_exif', 'resize', 'backup', 'png_to_jpg', 'no_scale', 'background_email' );
+	private $bulk_fields = array( 'lossy', 'bulk', 'auto', 'strip_exif', 'resize', 'original', 'backup', 'png_to_jpg', 'no_scale', 'background_email' );
 
 	/**
 	 * @since 3.12.6
 	 *
 	 * Upsell fields.
 	 */
-	private $upsell_fields = array( 'background_email' );
+	private $upsell_fields = array( 'background_email','png_to_jpg' );
 
 	/**
 	 * List of fields in integration form.
@@ -339,12 +339,12 @@ class Settings {
 			'original'          => array(
 				'label'       => esc_html__( 'Optimize original images', 'wp-smushit' ),
 				'short_label' => esc_html__( 'Original Images', 'wp-smushit' ),
-				'desc'        => esc_html__( 'Choose how you want Smush to handle the original image file when you run a bulk smush.', 'wp-smushit' ),
+				'desc'        => esc_html__( 'Control how Smush processes your original image files when running bulk smush.', 'wp-smushit' ),
 			),
 			'backup'            => array(
 				'label'       => esc_html__( 'Backup original images', 'wp-smushit' ),
 				'short_label' => esc_html__( 'Backup Original Images', 'wp-smushit' ),
-				'desc'        => esc_html__( 'Enable this feature to save a copy of your original images so you can restore them at any point. Note: Keeping a copy of the original images can significantly increase the size of your uploads folder.', 'wp-smushit' ),
+				'desc'        => esc_html__( 'Keep a backup of your original images so you can restore them anytime. Be aware this may increase the size of your uploads folder.', 'wp-smushit' ),
 			),
 			'png_to_jpg'        => array(
 				'label'       => esc_html__( 'Auto-convert PNGs to JPEGs (lossy)', 'wp-smushit' ),

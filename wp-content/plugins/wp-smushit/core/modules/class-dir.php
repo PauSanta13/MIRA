@@ -457,9 +457,10 @@ class Dir extends Abstract_Module {
 	public function get_unsmushed_images() {
 		global $wpdb;
 
-		$condition = 'image_size IS NULL';
-		if ( $this->settings->get( 'lossy' ) ) {
-			$condition .= ' OR lossy <> 1';
+		$condition   = 'image_size IS NULL';
+		$lossy_level = $this->settings->get_lossy_level_setting();
+		if ( $lossy_level > 0 ) {
+			$condition .= ' OR lossy IS NULL OR lossy < ' . intval( $lossy_level );
 		}
 
 		if ( $this->settings->get( 'strip_exif' ) ) {

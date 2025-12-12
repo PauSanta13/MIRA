@@ -85,7 +85,7 @@ class Directory_UI_Controller extends Controller {
 		?>
 		<div class="wp-smush-scan-result">
 			<div class="sui-message-content" style="margin-bottom:10px">
-				<button class="sui-button sui-button-ghost wp-smush-browse">
+				<button class="sui-button sui-button-ghost wp-smush-browse" type="button">
 					<span class="sui-icon-folder" aria-hidden="true"></span><?php esc_html_e( 'Choose directory to smush', 'wp-smushit' ); ?>
 				</button>
 			</div>
@@ -275,6 +275,11 @@ class Directory_UI_Controller extends Controller {
 	}
 
 	public function show_directory_smush_move_notice() {
+		$is_pre_3_22_site = get_site_option( 'wp_smush_pre_3_22_site' );
+		if ( ! $is_pre_3_22_site ) {
+			return;
+		}
+
 		$smush_admin   = WP_Smush::get_instance()->admin();
 		$notice_hidden = $smush_admin->is_notice_dismissed( 'directory-smush-move' );
 

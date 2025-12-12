@@ -10,7 +10,9 @@ use Smush\Core\Parser\Element_Attribute;
 use Smush\Core\Transform\Transformation_Controller;
 
 class Image_Dimensions_Transform implements Transform {
-	const IMAGE_DIMENSIONS_CLASS = 'smush-dimensions';
+	const IMAGE_DIMENSIONS_CLASS     = 'smush-dimensions';
+	const IMAGE_WIDTH_CSS_VAR        = '--smush-image-width';
+	const IMAGE_ASPECT_RATIO_CSS_VAR = '--smush-image-aspect-ratio';
 
 	/**
 	 * @var Url_Utils
@@ -107,7 +109,7 @@ class Image_Dimensions_Transform implements Transform {
 
 		// Custom style attribute.
 		$original_style = $image_element->get_attribute_value( 'style' );
-		$new_style      = "--smush-image-width: {$width}px; --smush-image-aspect-ratio: $width/$height;$original_style";
+		$new_style      = self::IMAGE_WIDTH_CSS_VAR . ": {$width}px; " . self::IMAGE_ASPECT_RATIO_CSS_VAR . ": $width/$height;$original_style";
 
 		$image_element->add_or_update_attribute( new Element_Attribute( 'style', $new_style ) );
 	}

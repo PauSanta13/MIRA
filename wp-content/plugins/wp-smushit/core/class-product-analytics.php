@@ -240,9 +240,11 @@ class Product_Analytics {
 		$not_tracked_in_24_hours   = $this->time_utils->get_time() - $event_count_timestamp > DAY_IN_SECONDS;
 
 		if ( $not_tracked_in_24_hours || $event_count < $limit_per_day ) {
-			$this->track( $event, array_merge( array(
-				'Total Error Count' => empty( $event_count_timestamp ) ? 1 : $event_count,
-			), $properties ) );
+			if ( 'smush_error_encountered' === $event ) {
+				$properties['Total Error Count'] = empty( $event_count_timestamp ) ? 1 : $event_count;
+			}
+
+			$this->track( $event, $properties );
 
 			if ( $not_tracked_in_24_hours ) {
 				// Reset the count if it has been more than 24 hours

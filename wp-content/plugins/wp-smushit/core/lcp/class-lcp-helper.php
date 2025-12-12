@@ -123,7 +123,6 @@ class LCP_Helper {
 			'selector_class',
 			'image_url',
 			array( 'background_data', 'type' ),
-			array( 'background_data', 'property' ),
 			array( 'background_data', 'urls' ),
 		);
 
