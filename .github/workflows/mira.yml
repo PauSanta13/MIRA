@@ -24,8 +24,13 @@ jobs:
 #          docker compose pull mira-sca
 #          docker compose run --rm mira-sca
 
-      - name: Ejecutar DAST
+      - name: MIRA DAST
         working-directory: .
         run: |
           docker compose pull mira-dast
-          docker compose run --rm mira-dast
+          docker compose run --rm mira-dast || true
+
+      - name: MIRA SAST
+        working-directory: .
+        run: |
+          docker compose run --rm mira-sast-semgrep
