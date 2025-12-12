@@ -55,7 +55,7 @@ def call_wpscan(slug, version, token):
     vulns = data.get(slug, {}).get("vulnerabilities", [])
     
     applicable = []
-    for v in raw_vulns:
+    for v in vulns:
         fixed_in = v.get("fixed_in")
         if not fixed_in:
             applicable.append(v)
