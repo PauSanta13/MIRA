@@ -1,16 +1,17 @@
-name: MIRA WPScan delta
+name: MIRA SCA
 
 on:
   push:
-    branches:
-      - master
+    branches: [ main ]
 
 jobs:
   mira-wpscan-delta:
+    if: ${{ github.event.head_commit.author.name == 'Mirror Admin' }}
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
@@ -23,8 +24,9 @@ jobs:
         run: |
           pip install requests
 
-      - name: Run MIRA SCA script
+      - name: Run MIRA WPScan delta script
         env:
           WPSCAN_TOKEN: ${{ secrets.WPSCAN_TOKEN }}
         run: |
           python mira_sca.py
+
