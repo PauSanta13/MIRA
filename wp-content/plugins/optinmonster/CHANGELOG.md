@@ -1,6 +1,9 @@
 # Changelog
 All notable changes to the OptinMonster plugin will be documented in this file.
 
+## 2.16.22
+* Promotional updates to the dashboard.
+
 ### 2.16.21 - 2025-10-03
 * Maintenance updates.
 * Preparation for ShareASale to AWIN migration.
