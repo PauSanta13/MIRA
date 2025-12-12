@@ -1,20 +1,4 @@
 services:
-  mira-sca:
-    image: wpscanteam/wpscan:latest
-    container_name: mira-sca
-    restart: "no"
-    environment:
-      TARGET_URL: ${TARGET_URL}                
-      WPSCAN_TOKEN: ${WPSCAN_TOKEN}
-    command: >
-      --url ${TARGET_URL}
-      --api-token ${WPSCAN_TOKEN}
-      --format json
-      --output /sca/reports/mira-sca-report-$(date +%Y%m%d-%H%M).json
-    volumes:
-      - /Users/paunis/Coding/MIRA/reports/sca:/sca/reports
-    networks:
-      - wp_net
 
   mira-dast:
     image: zaproxy/zap-stable
@@ -22,8 +6,8 @@ services:
     environment:
       - TARGET_URL=${TARGET_URL}
     volumes:
-      - /Users/paunis/Coding/MIRA/zap-wrk:/zap/wrk
-      - /Users/paunis/Coding/MIRA/reports/dast:/dast/reports
+      - ./zap-wrk:/zap/wrk
+      - ./reports/dast:/dast/reports
     command:
       - /bin/sh
       - -c
@@ -31,27 +15,11 @@ services:
         zap-baseline.py --autooff
         -I
         -t "$TARGET_URL"
-        -r /dast/reports/mira-dast-report-$(date +%Y%m%d-%H%M).html
+        -r /dast/reports/mira-dast-report.html
 
     networks:
       - wp_net
     restart: "no"
-
-  mira-sast-semgrep:
-    image: semgrep/semgrep:latest
-    container_name: mira-sast-semgrep
-    working_dir: /wp-content
-    volumes:
-      - /Users/paunis/Coding/MIRROR/wordpress-import/files/wp-content:/wp-content
-      - /Users/paunis/Coding/MIRA/reports/sast:/sast/reports
-    command: >
-      semgrep
-        --config p/owasp-top-ten
-        --config p/php
-        --config p/secrets
-        --json
-        --output /sast/reports/mira-sast-report.json
-        /wp-content
 
 networks:
   wp_net:
