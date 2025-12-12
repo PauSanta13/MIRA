@@ -19,12 +19,6 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
-#      - name: Ejecutar SCA
-#        working-directory: .
-#        run: |
-#          docker compose pull mira-sca
-#          docker compose run --rm mira-sca
-
       - name: MIRA DAST
         working-directory: .
         run: |
@@ -35,3 +29,18 @@ jobs:
         working-directory: .
         run: |
           docker compose run --rm mira-sast-semgrep
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install deps
+        run: |
+          pip install requests
+
+      - name: MIRA SCA
+        env:
+          WPSCAN_TOKEN: ${{ secrets.WPSCAN_TOKEN }}
+        run: |
+          python mira_sca.py
