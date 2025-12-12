@@ -41,7 +41,7 @@ def get_plugin_slug_from_commit(sha):
     parts = Path(first_path).parts
     if len(parts) < 3:
         return None
-    return parts[2]  # wp-content/plugins/<slug>/...
+    return parts[2]
 
 def call_wpscan(slug, version, token):
     headers = {"Authorization": f"Token token={token}"}
@@ -53,7 +53,40 @@ def call_wpscan(slug, version, token):
     r.raise_for_status()
     data = r.json()
     vulns = data.get(slug, {}).get("vulnerabilities", [])
-    return {"slug": slug, "version": version, "found": True, "vulnerabilities": vulns}
+    
+    applicable = []
+    for v in raw_vulns:
+        fixed_in = v.get("fixed_in")
+        if not fixed_in:
+            applicable.append(v)
+            continue
+        try:
+            if is_version_less(version, fixed_in):
+                applicable.append(v)
+        except Exception as e:
+            print(f"Error comparando versiones '{version}' vs '{fixed_in}': {e}")
+            applicable.append(v)
+
+    return {
+        "slug": slug,
+        "version": version,
+        "found": True,
+        "vulnerabilities": applicable
+    }
+
+def parse_version(v: str):
+
+    parts = re.split(r'\D+', v)
+    return [int(p) for p in parts if p.isdigit()]
+
+def is_version_less(v1: str, v2: str) -> bool:
+    a = parse_version(v1)
+    b = parse_version(v2)
+
+    max_len = max(len(a), len(b))
+    a += [0] * (max_len - len(a))
+    b += [0] * (max_len - len(b))
+    return a < b
 
 def main():
     token = os.getenv("WPSCAN_TOKEN")
@@ -89,7 +122,7 @@ def main():
     except Exception as e:
         print(f"Error llamando a WPScan: {e}")
         return 0  # que no rompa el job
-
+    
     print("Resultado WPScan:")
     print(json.dumps(result, indent=2))
 
