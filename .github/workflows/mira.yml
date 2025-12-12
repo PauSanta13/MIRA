@@ -8,6 +8,7 @@ on:
   
 jobs:
   mira:
+    if: ${{ github.event.head_commit.author.name == 'Mirror Admin' }}
     runs-on: self-hosted
     
     env:
