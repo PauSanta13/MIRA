@@ -163,6 +163,25 @@ class OMAPI_Menu {
 			array( $this->pages, 'render_app_loading_page' )
 		);
 
+		// Add BFCM menu item right after Dashboard if active.
+		$bfcm_item = $this->pages->should_show_bfcf_menu_item();
+		if ( $bfcm_item ) {
+			$menu_title = '<span class="om-menu-bfcm-highlight">🎁 ' . $bfcm_item['name'] . '</span>';
+			$hook = add_submenu_page(
+				self::SLUG,
+				$bfcm_item['name'],
+				$menu_title,
+				$this->base->access_capability( 'optin-monster-bfcm' ),
+				'optin-monster-bfcm',
+				'__return_null'
+			);
+			$this->hooks[] = $hook;
+			add_action( 'load-' . $hook, array( $this->pages, 'handle_redirect' ), 999 );
+
+			// Reorder menu to place BFCM right after Dashboard.
+			add_action( 'admin_menu', array( $this, 'reorder_bfcm_menu' ), 999 );
+		}
+
 		$this->hooks = array_merge( $this->hooks, $this->pages->register_submenu_pages( self::SLUG ) );
 
 		// Register our old api page and redirect to the new dashboard.
@@ -365,6 +384,39 @@ class OMAPI_Menu {
 	}
 
 	/**
+	 * Reorders the submenu to place BFCM item right after Dashboard.
+	 *
+	 * @since 2.16.22
+	 *
+	 * @return void
+	 */
+	public function reorder_bfcm_menu() {
+		global $submenu;
+
+		if ( ! isset( $submenu[ self::SLUG ] ) ) {
+			return;
+		}
+
+		// Find the BFCM menu item.
+		$bfcm_item = null;
+		$bfcm_index = null;
+		foreach ( $submenu[ self::SLUG ] as $index => $item ) {
+			if ( isset( $item[2] ) && 'optin-monster-bfcm' === $item[2] ) {
+				$bfcm_item = $item;
+				$bfcm_index = $index;
+				break;
+			}
+		}
+
+		// If BFCM item found, remove it and reinsert at position 0 (top).
+		if ( null !== $bfcm_item && null !== $bfcm_index ) {
+			unset( $submenu[ self::SLUG ][ $bfcm_index ] );
+			// Insert at position 0 to make it the first menu item.
+			array_splice( $submenu[ self::SLUG ], 0, 0, array( $bfcm_item ) );
+		}
+	}
+
+	/**
 	 * Adds om admin body classes
 	 *
 	 * @since  1.3.4
@@ -382,7 +434,6 @@ class OMAPI_Menu {
 		}
 
 		return $classes;
-
 	}
 
 	/**
@@ -444,7 +495,6 @@ class OMAPI_Menu {
 
 		// Run a hook to load in custom styles.
 		do_action( 'optin_monster_api_admin_styles' );
-
 	}
 
 	/**

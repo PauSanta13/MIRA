@@ -4,7 +4,7 @@ Tags: marketing, popup, popups, optin, ecommerce
 Requires at least: 5.0.0
 Tested up to: 6.8
 Requires PHP: 7.2
-Stable tag: 2.16.21
+Stable tag: 2.16.22
 License: GNU General Public License v2.0 or later
 
 🤩 Make popups & optin forms to get more email newsletter subscribers, leads, and sales - #1 most popular popup builder plugin! 🚀
@@ -327,6 +327,9 @@ We also recommend <a href="http://www.wpbeginner.com/">WPBeginner</a> for the be
 == Changelog ==
 
 **Most Recent Changes:**
+
+= Popup Builder 2.16.22 =
+* Promotional updates to the dashboard.
 
 = Popup Builder 2.16.21 =
 * Maintenance updates.
